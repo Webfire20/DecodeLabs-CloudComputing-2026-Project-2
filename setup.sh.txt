@@ -1,0 +1,27 @@
+#!/bin/bash
+# Project 2 — EC2 Server Commander
+# DecodeLabs Cloud Computing Internship 2026
+
+# Update system
+sudo dnf update -y
+
+# Install Nginx
+sudo dnf install nginx -y
+
+# Start and enable Nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+# Deploy custom webpage
+sudo tee /usr/share/nginx/html/index.html > /dev/null <<EOF
+<!DOCTYPE html>
+<html>
+<head><title>Welcome to DecodeLabs</title></head>
+<body>
+  <h1>Welcome to DecodeLabs</h1>
+  <p>Mission Accomplished — Server Commander Active</p>
+</body>
+</html>
+EOF
+
+echo "Deployment complete!"
